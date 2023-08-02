@@ -68,6 +68,24 @@ struct FeedCell: View {
                 .padding(.top, 1)
             
             //caption Label
+            
+            HStack{
+                Text(" Batman ") .fontWeight(.semibold) +
+                Text("Hey I am Batman ")
+                
+            }
+            .frame(maxWidth: .infinity , alignment: .leading)
+            .padding(.leading, 10)
+            .font(.footnote)
+            .padding(.top ,1)
+            
+            Text(" 1h ago")
+                .font(.footnote)
+                .foregroundColor(.gray)
+                .frame(maxWidth: .infinity , alignment: .leading)
+                .padding(.leading , 8)
+                .padding(.top, 1)
+            
         }
     }
 }
