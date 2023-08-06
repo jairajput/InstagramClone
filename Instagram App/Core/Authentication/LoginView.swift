@@ -13,6 +13,7 @@ struct LoginView: View {
     var body: some View {
         NavigationStack{
             VStack{
+                Spacer()
                Image("Instagram")
                     .resizable()
                     .scaledToFit()
@@ -64,6 +65,33 @@ struct LoginView: View {
                     Rectangle().frame(width: (UIScreen.main.bounds.width/2) - 40, height:0.5)
                 }
                 .foregroundColor(.gray)
+                HStack{
+                    Image("Facebook")
+                        .resizable()
+                        .frame(width: 20 , height: 20)
+                    Text("Continue With Facebook")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(.systemBlue))
+                }
+                .padding(.top , 8)
+                Spacer()
+                
+                Divider()
+                
+                NavigationLink{
+                    AddEmailView()
+                   
+                } label: {
+                    HStack(spacing:3){
+                        Text("Dont Have An Account?")
+                         
+                        Text("Sign Up")
+                            .fontWeight(.semibold)
+                    }
+                    .font(.footnote)
+                }
+                .padding(.vertical , 16)
             }
         }
     }
