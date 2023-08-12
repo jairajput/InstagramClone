@@ -22,16 +22,10 @@ struct LoginView: View {
                 VStack{
                     TextField( "Enter Your Email" , text: $email)
                         .autocapitalization(.none)
-                        .padding(12)
-                        .font(.subheadline)
-                        .background(Color(.systemGray6)).cornerRadius(10)
-                        .padding(.horizontal , 24)
+                        .modifier(IGTextFieldModifier())
                     SecureField( "Password" , text: $password)
                         .autocapitalization(.none)
-                        .padding(12)
-                        .font(.subheadline)
-                        .background(Color(.systemGray6)).cornerRadius(10)
-                        .padding(.horizontal , 24)
+                        .modifier(IGTextFieldModifier())
                 }
                 Button {
                     print("show forgot password")
@@ -46,7 +40,7 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity , alignment: .trailing)
 
                 Button {
-                    print("show forgot password")
+                    print("Login")
                 } label: {
                     Text("Login")
                         .font(.subheadline)
@@ -81,6 +75,7 @@ struct LoginView: View {
                 
                 NavigationLink{
                     AddEmailView()
+                        
                    
                 } label: {
                     HStack(spacing:3){

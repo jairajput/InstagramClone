@@ -1,33 +1,33 @@
 //
-//  AddEmailView.swift
+//  CreateUsernameView.swift
 //  Instagram App
 //
-//  Created by Jai  on 06/08/23.
+//  Created by Jai  on 11/08/23.
 //
 
 import SwiftUI
 
-struct AddEmailView: View {
-    @State private var email = ""
-    @Environment (\.dismiss) var dismiss
+struct CreateUsernameView: View {
+    @State private var username = ""
     var body: some View {
         VStack(spacing: 12){
-            Text("Add Your Email")
+            Text(" Create Username")
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top)
             
-            Text("You Will Use This Email To Sign In Your Account")
+            Text("Pick A username For Your Account You can Change It Later ")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal , 24)
             
-            TextField("Email", text: $email)
+            TextField("Username", text: $username)
                 .autocapitalization(.none)
                 .modifier(IGTextFieldModifier())
+            
             NavigationLink {
-                CreateUsernameView()
+                CreatePasswordView()
             } label: {
                 Text("Next")
                     .font(.subheadline)
@@ -37,26 +37,16 @@ struct AddEmailView: View {
                     .background(Color(.systemBlue))
                     .cornerRadius(10)
             }
-
             .padding(.vertical)
             
             Spacer()
             
         }
-        .toolbar{
-            ToolbarItem(placement: .navigationBarLeading) {
-                Image(systemName:"cheveron.left")
-                    .imageScale(.large)
-                    .onTapGesture {
-                        dismiss()
-                    }
-            }
-        }
     }
 }
 
-struct AddEmailView_Previews: PreviewProvider {
+struct CreateUsernameView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEmailView()
+        CreateUsernameView()
     }
 }
