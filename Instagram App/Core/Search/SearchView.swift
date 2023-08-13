@@ -14,24 +14,30 @@ struct SearchView: View {
             ScrollView{
                 VStack {
                     LazyVStack(spacing: 12){
-                        ForEach(0 ... 15, id:\.self) {
+                        ForEach(User.MOCK_USERS) {
                             user in
+                            NavigationLink(value: user) {
                                 HStack{
-                                    Image("Batman")
+                                    Image(user.profileImageUrl ?? "")
                                         .resizable()
                                         .scaledToFill()
                                         .clipShape(Circle())
                                         .frame(width: 40 , height: 40)
                                     VStack(alignment: .leading){
-                                        Text("Batman")
+                                        Text(user.username)
                                             .fontWeight(.semibold)
                                         
-                                        Text("Bruce Wayne")
+                                        if let fullName = user.fullName{
+                                            Text(user.fullName ?? "")
+                                        }
                                     }
                                     .font(.footnote)
                                    Spacer()
-                            }
+
+                                }.foregroundColor(.black)
                                 .padding(.horizontal)
+                            }
+                                
                             
                             
                         }
@@ -39,6 +45,10 @@ struct SearchView: View {
                     .padding(.top , 8)
                     .searchable(text: $searchText , prompt: "Search")
                 }
+                .navigationDestination(for: User.self, destination: { user in
+                    ProfileView(user:user)
+                    
+                })
                 .navigationTitle("Explore")
                 .navigationBarTitleDisplayMode(.inline)
             }
