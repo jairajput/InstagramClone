@@ -19,7 +19,7 @@ struct MainTabView: View {
             SearchView()
                 .tabItem{
                     Image(systemName: "magnifyingglass")
-                }
+                }  
             
             Text("Upload")
                 .tabItem{
@@ -31,7 +31,7 @@ struct MainTabView: View {
                     Image(systemName: "heart")
                 }
             
-           CurrentUserProfileView()
+            CurrentUserProfileView(user: User.MOCK_USERS[0])
                 .tabItem{
                     Image(systemName: "person")
                 }

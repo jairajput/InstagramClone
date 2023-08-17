@@ -75,7 +75,7 @@ struct FeedCell: View {
             
             HStack{
                 Text("\(post.user?.username ?? "") ") .fontWeight(.semibold) +
-                Text("Hey I am Batman ")
+                Text(post.caption)
                 
             }
             .frame(maxWidth: .infinity , alignment: .leading)
