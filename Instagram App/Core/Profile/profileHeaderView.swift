@@ -42,6 +42,7 @@ struct profileHeaderView: View {
                     Text(bio)
                         .font(.footnote)
                 }
+                Text(user.username)
                                     
                 
             }
@@ -52,7 +53,7 @@ struct profileHeaderView: View {
                 
             }
               label:{
-                  Text("Edit Profile")
+                  Text(user.isCurrentUser ? "Edit Profile": "Follow")
                       .font(.subheadline)
                       .fontWeight(.semibold)
                       .frame(width: 360 , height: 32)
